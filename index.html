@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inma Gutierrez Contreras | Operations & Enablement</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #dbe3ee;
+      --accent: #2563eb;
+      --accent-soft: #eaf1ff;
+      --section: #eef3f8;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg-soft);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #0f172a 0%, #111c33 100%);
+      color: white;
+      padding: 88px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+    }
+
+    .hero::before {
+      width: 560px;
+      height: 560px;
+      right: -180px;
+      top: -140px;
+    }
+
+    .hero::after {
+      width: 340px;
+      height: 340px;
+      right: 120px;
+      bottom: -140px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c7d2fe;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
+
+    .hero-sub {
+      margin-top: 18px;
+      font-size: 1.1rem;
+      color: #dbe7ff;
+      max-width: 680px;
+    }
+
+    .hero-points {
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      max-width: 670px;
+    }
+
+    .hero-points li {
+      padding-left: 30px;
+      position: relative;
+      color: #f8fbff;
+    }
+
+    .hero-points li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #60a5fa;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      box-shadow: 0 0 0 6px rgba(96,165,250,0.12);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--bg);
+    }
+
+    .btn-secondary {
+      color: white;
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      padding: 30px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #c7d2fe;
+    }
+
+    .hero-card p {
+      margin: 0 0 18px;
+      color: #e2e8f0;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      color: white;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-white { background: var(--surface); }
+    .section-soft { background: var(--section); }
+
+    .section-head {
+      margin-bottom: 30px;
+      max-width: 740px;
+    }
+
+    .kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin-top: 16px;
+      font-size: 1.04rem;
+    }
+
+    .about-grid,
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .panel p:last-child { margin-bottom: 0; }
+
+    .cap-list,
+    .skill-list,
+    .focus-list,
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .cap-list li,
+    .focus-list li,
+    .contact-list li {
+      padding-left: 24px;
+      position: relative;
+      color: var(--text);
+    }
+
+    .cap-list li::before,
+    .focus-list li::before,
+    .contact-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 10px;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .impact-item {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 26px;
+      min-height: 160px;
+    }
+
+    .impact-item strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .impact-item span {
+      color: var(--muted);
+      display: block;
+    }
+
+    .cases {
+      display: grid;
+      gap: 24px;
+    }
+
+    .case {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 30px;
+    }
+
+    .case-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .case-role {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .case-company {
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .case-block h4 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .case-block p,
+    .case-block ul {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .case-block ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+    }
+
+    .skill-list li {
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .skill-list li:last-child { border-bottom: none; }
+
+    .contact {
+      background: linear-gradient(180deg, #0f172a 0%, #0b1327 100%);
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact .section-head p,
+    .contact-list li,
+    .contact-panel p {
+      color: #dbe7ff;
+    }
+
+    .contact-panel {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      background: #0b1327;
+      color: #94a3b8;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .two-col,
+      .contact-grid,
+      .case-grid,
+      .skills-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding-top: 72px; }
+      .hero-card { margin-top: 12px; }
+      .case-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Inma Gutierrez Contreras</span>
+        <h1>Turning complex business initiatives into structured, scalable execution</h1>
+        <p class="hero-sub">Operations • Program Coordination • Cross-functional Enablement</p>
+
+        <ul class="hero-points">
+          <li>Built operational frameworks, reporting structures, and dashboards across Tech &amp; Data environments.</li>
+          <li>Coordinated internal initiatives, knowledge spaces, events, and stakeholder alignment across international teams.</li>
+          <li>Brings together business, people, systems, and execution with a strong focus on clarity, follow-through, and visibility.</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:inmaculada.g.contreras@gmail.com">Get in touch</a>
+          <a class="btn btn-secondary" href="#experience">View experience</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>What I bring</h3>
+        <p>I help organizations move from fragmented activity to structured execution by aligning stakeholders, improving visibility, and creating scalable ways of working.</p>
+        <div class="mini-metrics">
+          <div class="metric">
+            <strong>900+</strong>
+            <span>employees impacted through internal initiatives and communication</span>
+          </div>
+          <div class="metric">
+            <strong>Cross-functional</strong>
+            <span>experience across operations, HR, systems, and business coordination</span>
+          </div>
+          <div class="metric">
+            <strong>Leadership-ready</strong>
+            <span>reporting, dashboards, follow-ups, and visibility for decision-making</span>
+          </div>
+          <div class="metric">
+            <strong>Global</strong>
+            <span>international environments with multiple stakeholders and teams</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section-white">
+    <div class="container about-grid">
+      <div>
+        <div class="section-head">
+          <span class="kicker">About</span>
+          <h2>Business support with an operations and enablement mindset</h2>
+          <p>My professional journey has evolved across operations, people, and business coordination roles within international and large-scale environments. I work best where structure is needed, priorities need alignment, and execution depends on connecting people, processes, and information clearly.</p>
+        </div>
+        <div class="panel">
+          <p>I started in customer-facing and support roles, which gave me a strong foundation in understanding people, navigating complexity, and solving problems in fast-paced settings.</p>
+          <p>As my career progressed, I moved into coordination and operational roles, working closely with cross-functional teams across sales, IT, HR, and business functions. This strengthened my focus on stakeholder alignment, workflow improvement, reporting, and turning ideas into structured execution.</p>
+          <p>Today, I position myself as someone who brings clarity and consistency to complex environments — especially where business coordination, internal enablement, knowledge structure, reporting, and execution all need to come together.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-head">
+          <span class="kicker">How I work</span>
+          <h2>Structure, follow-through, and visibility</h2>
+        </div>
+        <div class="panel">
+          <ul class="cap-list">
+            <li>Translate ideas into executable plans with clear owners, timelines, and follow-up.</li>
+            <li>Align cross-functional stakeholders and help initiatives move from discussion to action.</li>
+            <li>Build visibility through dashboards, reporting, KPIs, and structured communication.</li>
+            <li>Standardize processes so initiatives become repeatable, scalable, and easier to manage.</li>
+            <li>Act as the operational link between business, systems, people, and internal enablement.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Impact snapshot</span>
+        <h2>Built around execution, visibility, and coordination</h2>
+        <p>A concise view of the areas where I have created value across internal operations, reporting, and cross-team initiatives.</p>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-item">
+          <strong>900+</strong>
+          <span>employees reached or impacted through internal initiatives, sessions, and communication support</span>
+        </div>
+        <div class="impact-item">
+          <strong>Leadership</strong>
+          <span>dashboards, reporting overviews, and presentations designed to support decision-making and visibility</span>
+        </div>
+        <div class="impact-item">
+          <strong>Global</strong>
+          <span>cross-functional coordination across international teams and multiple business areas</span>
+        </div>
+        <div class="impact-item">
+          <strong>Systems</strong>
+          <span>experience with Excel, HiBob, CRM-related tools, Business Central, Navision, and structured data follow-up</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white" id="experience">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Selected experience</span>
+        <h2>Experience presented through challenge, action, and impact</h2>
+        <p>Rather than listing responsibilities only, this reflects how I approach work: identifying what needs structure, building the right support, and improving execution.</p>
+      </div>
+
+      <div class="cases">
+        <article class="case">
+          <div class="case-top">
+            <div>
+              <div class="case-role">Admin Coordinator</div>
+              <div class="case-company">VML MAP — Operations &amp; Enablement | Tech &amp; Data</div>
+            </div>
+            <div class="tag">Current / most recent role</div>
+          </div>
+          <div class="case-grid">
+            <div class="case-block">
+              <h4>Challenge</h4>
+              <p>Support a large and fast-moving internal environment where initiatives, guilds, reporting, communication, and knowledge-sharing activities required stronger structure, visibility, and coordination across stakeholders.</p>
+            </div>
+            <div class="case-block">
+              <h4>Action</h4>
+              <ul>
+                <li>Built operational frameworks including handbook support, certifications tracking, reporting structure, and visibility processes.</li>
+                <li>Created Excel dashboards and leadership overviews using attendance and people-related data sources.</li>
+                <li>Coordinated internal sessions, guild-related initiatives, invitations, follow-ups, communication, and stakeholder alignment.</li>
+                <li>Supported presentations, town halls, internal events, and other business-critical coordination tasks.</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <h4>Impact</h4>
+              <ul>
+                <li>Improved visibility for leadership through better reporting and clearer tracking.</li>
+                <li>Helped standardize how internal initiatives were organized and followed up.</li>
+                <li>Supported consistency across Tech &amp; Data activities and internal enablement efforts.</li>
+                <li>Contributed to initiatives impacting a 900+ employee environment.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-top">
+            <div>
+              <div class="case-role">People &amp; Culture Coordinator</div>
+              <div class="case-company">Milestone Systems — Global HR &amp; Operations</div>
+            </div>
+            <div class="tag">International HR coordination</div>
+          </div>
+          <div class="case-grid">
+            <div class="case-block">
+              <h4>Challenge</h4>
+              <p>Support global HR processes and leadership-related initiatives in an international environment where consistency, communication, and coordination were essential.</p>
+            </div>
+            <div class="case-block">
+              <h4>Action</h4>
+              <ul>
+                <li>Supported global HR operations, planning, and internal coordination.</li>
+                <li>Worked across multiple stakeholders and contributed to process support and communication activities.</li>
+                <li>Helped structure information and follow-up across initiatives connected to people operations.</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <h4>Impact</h4>
+              <ul>
+                <li>Improved alignment across international stakeholders.</li>
+                <li>Contributed to smoother execution of people-related initiatives.</li>
+                <li>Strengthened my foundation in structured coordination within global environments.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-top">
+            <div>
+              <div class="case-role">Sales Coordinator</div>
+              <div class="case-company">Milestone Systems — Operations &amp; Systems</div>
+            </div>
+            <div class="tag">Business systems &amp; process improvement</div>
+          </div>
+          <div class="case-grid">
+            <div class="case-block">
+              <h4>Challenge</h4>
+              <p>Support coordination between Sales, IT, and technical teams while navigating systems, workflows, and evolving operational needs.</p>
+            </div>
+            <div class="case-block">
+              <h4>Action</h4>
+              <ul>
+                <li>Acted as a link between Sales, IT, and technical stakeholders.</li>
+                <li>Became a key user in Navision and Business Central.</li>
+                <li>Supported system migration and operational process improvements.</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <h4>Impact</h4>
+              <ul>
+                <li>Improved collaboration across teams with different priorities and needs.</li>
+                <li>Supported more efficient workflows through systems understanding and coordination.</li>
+                <li>Built a strong base in operations, systems, and business process support.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Core strengths</span>
+        <h2>Capabilities that support business execution</h2>
+        <p>My background combines structured coordination, reporting, enablement, and practical execution across different types of internal business environments.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Operations &amp; Execution</h3>
+          <ul class="skill-list">
+            <li>Program and initiative coordination</li>
+            <li>Stakeholder alignment</li>
+            <li>Process structuring</li>
+            <li>Follow-up and execution support</li>
+            <li>Internal event and initiative organization</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Data, Systems &amp; Tools</h3>
+          <ul class="skill-list">
+            <li>Excel reporting and dashboards</li>
+            <li>HiBob exposure and people data support</li>
+            <li>Business Central and Navision key-user experience</li>
+            <li>CRM and structured systems adoption mindset</li>
+            <li>Data visibility and KPI overview preparation</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Enablement &amp; Communication</h3>
+          <ul class="skill-list">
+            <li>Knowledge structuring and internal documentation</li>
+            <li>Presentation and leadership-ready communication</li>
+            <li>Cross-functional collaboration</li>
+            <li>Internal communications support</li>
+            <li>Business-facing and people-centered coordination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="container two-col">
+      <div>
+        <div class="section-head">
+          <span class="kicker">Direction</span>
+          <h2>The roles I am best positioned for</h2>
+          <p>I am especially interested in roles where I can bring structure, visibility, coordination, and execution to business functions that need someone connecting the dots behind the scenes.</p>
+        </div>
+        <div class="panel">
+          <ul class="focus-list">
+            <li>Operations &amp; Enablement</li>
+            <li>Program or Project Coordination</li>
+            <li>Business Operations</li>
+            <li>Internal Strategy &amp; Execution support</li>
+            <li>Business Support or Commercial Operations coordination</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-head">
+          <span class="kicker">Professional profile</span>
+          <h2>How I want my work to be understood</h2>
+        </div>
+        <div class="panel">
+          <p>I do not position myself only as someone who assists. My strongest value is in helping organizations move forward with more clarity, stronger coordination, and better operational follow-through.</p>
+          <p>I bring a practical mix of structure, ownership, people awareness, and process thinking — especially useful in environments where many things are moving at once and someone needs to keep them connected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="container contact-grid">
+      <div>
+        <div class="section-head">
+          <span class="kicker">Contact</span>
+          <h2>Let’s bring structure where things feel complex</h2>
+          <p>If you are looking for someone who can turn ideas into structured execution, improve visibility, and help align teams around clear processes, I would be glad to connect.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:inmaculada.g.contreras@gmail.com">Email me</a>
+          <a class="btn btn-secondary" href="#top">Back to top</a>
+        </div>
+      </div>
+
+      <div class="contact-panel">
+        <p><strong>Contact details</strong></p>
+        <ul class="contact-list">
+          <li>Email: inmaculada.g.contreras@gmail.com</li>
+          <li>Based in Copenhagen, Denmark</li>
+          <li>Open to opportunities in operations, enablement, business coordination, and internal execution-focused roles</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">Inma Gutierrez Contreras — Operations • Enablement • Business Coordination</div>
+  </footer>
+</body>
+</html>
